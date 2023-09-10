@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto mt-5">
+                <h3 class="text mx-auto text-center mt-5 text-info-emphasis">Create an Account Here</h3>
+            
+                <form method="POST" action="">
+                    <div class="row mt-5 mx-auto shadow-lg bg-body-tertiary rounded" style="width:700px">
+                    {% csrf_token %}
+                <table>
+                 
+                    {% for x in userform %}
+                    <tr>
+                        <td>{{x.label_tag}}</td>
+                        <td>{{x}}</td>
+                    </tr>
+                    {% endfor %}
+                </div>
+                    <tr>
+                        <td><input type="submit" class="btn btn-success" value="Register"></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Already Have an Account?<a href="/login">Login Here</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {% if success %}
+                            <span class="text-success">{{success}}</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
